@@ -1,3 +1,34 @@
+* {
+  margin:0;
+  padding:0;  
+  box-sizing:border-box;
+}
+
+
 body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  display: flex;
+}
+
+aside {
+  min-width: 20vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.travel-log {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.travel-card {
+  margin: 10px;
+  background-color: white;
+  width: 400px;
+  height: 200px;
 }
