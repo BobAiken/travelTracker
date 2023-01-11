@@ -121,21 +121,20 @@ describe("Trips", () => {
   it("should store all destinations the user has/will take a trip to",function(){
     expect(userTrips.destinations).to.deep.equal([ 
       {
+        id: 10,
+        destination: "Toronto, Canada",
+        estimatedLodgingCostPerDay: 90,
+        estimatedFlightCostPerPerson: 450,
+        image: "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80"
+      },
+      {
         id: 6,
         destination: "Jakarta, Indonesia",
         estimatedLodgingCostPerDay: 70,
         estimatedFlightCostPerPerson: 890,
         image: "https://images.unsplash.com/photo-1555333145-4acf190da336?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         alt: "lit up city at night"
-      },
-      {
-        id: 10,
-        destination: "Toronto, Canada",
-        estimatedLodgingCostPerDay: 90,
-        estimatedFlightCostPerPerson: 450,
-        image: "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80"
       }
-      
     ])
   })
 

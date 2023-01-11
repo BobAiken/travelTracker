@@ -1,8 +1,8 @@
 class Trip {
   constructor(tripData, userID, destinationData){
     this.trips = tripData.trips.filter(trip => trip.userID === userID)
-    this.destinations = destinationData.destinations.reduce((finalList,destination)=>{
-      this.trips.forEach(trip=>{
+    this.destinations = this.trips.reduce((finalList,trip)=>{
+      destinationData.destinations.forEach(destination => {
         if(destination.id === trip.destinationID){
           finalList.push(destination)
         }
