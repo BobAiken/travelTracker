@@ -55,7 +55,8 @@ function displayWelcomeMessage(){
 
 function createDestinationSelectList(){
   destinationsData.destinations.forEach(destination => {
-    formDestination.innerHtml += `<option value="${destination.id}">${destination.destination}</option>`
+    console.log(destination.destination)
+    formDestination.innerHTML += `<option value="${destination.id}">${destination.destination}</option>`
   })
 }
 

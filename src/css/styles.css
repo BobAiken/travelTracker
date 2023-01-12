@@ -52,3 +52,8 @@ img{
   height: 200px;
   width: 19vw;
 }
+
+.form{
+  display: flex;
+  flex-direction: column;
+}
