@@ -8,7 +8,7 @@ import Trip from './Trips';
 
 let travelLog = document.querySelector(".travel-log")
 let financeLog = document.querySelector(".finance-log")
-
+let welcomeMessage = document.querySelector(".welcome-message")
 
 //globalVariables
 let currentUser
@@ -37,6 +37,7 @@ function fetchApiCalls() {
 
 function loadHandler() {
   instantiateClasses()
+  displayWelcomeMessage()
   displayTravelLog()
   displayFinanceLog()
 }
@@ -46,25 +47,32 @@ function instantiateClasses() {
   travelerTrips = new Trip(tripsData,index,destinationsData)
 }
 
+function displayWelcomeMessage(){
+  welcomeMessage.innerText = `${traveler.traveler.name}`
+}
+
 function displayTravelLog() {
   travelerTrips.trips.forEach((trip,index) => {
     travelLog.innerHTML += `
     <section class="travel-card">
+    <article class=travel-card-info>
       <p>Location: ${travelerTrips.destinations[index].destination}</p>
-      <p>Travelers:${trip.travelers}</p>
-      <p>Date:${trip.date}</p>
-      <p>Duration:${trip.duration} days</p>
-      <p>Status:${trip.status}</p>
+      <p>Travelers: ${trip.travelers}</p>
+      <p>Date: ${trip.date}</p>
+      <p>Duration: ${trip.duration} days</p>
+      <p>Cost: ${travelerTrips.calculateSingleTripCost(index)}</p>
+      <p>Status: ${trip.status}</p>
+    </article>
+    <div class="image-container">
+      <img src=${travelerTrips.destinations[index].image} alt=${travelerTrips.destinations[index].alt}>
+    </div>
     </section>
     `
   })
 }
 
 function displayFinanceLog() {
-  financeLog.innerText = `Total Money Spent: ${new Intl.NumberFormat('en-US',{
-    style: 'currency',
-    currency: 'USD'
-  }).format(travelerTrips.calculateTotalTripCost())}`
+  financeLog.innerText = `Total Money Spent: ${travelerTrips.calculateTotalTripCost()}`
 }
 
 //eventListeners
