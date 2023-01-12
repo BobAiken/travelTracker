@@ -139,9 +139,12 @@ describe("Trips", () => {
   })
 
   it("should be able to calculate the total cost of all trips",function(){
-    expect(userTrips.calculateTotalTripCost()).to.equal(10406)
+    expect(userTrips.calculateTotalTripCost()).to.equal("$10,406.00")
   })
 
+  it("should be able to calculate the cost of one trip",function(){
+    expect(userTrips.calculateSingleTripCost(0)).to.equal("$3,762.00")
+  })
 
 })
 

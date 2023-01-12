@@ -8,7 +8,7 @@ import Trip from './Trips';
 
 let travelLog = document.querySelector(".travel-log")
 let financeLog = document.querySelector(".finance-log")
-
+let welcomeMessage = document.querySelector(".welcome-message")
 
 //globalVariables
 let currentUser
@@ -37,6 +37,7 @@ function fetchApiCalls() {
 
 function loadHandler() {
   instantiateClasses()
+  displayWelcomeMessage()
   displayTravelLog()
   displayFinanceLog()
 }
@@ -44,6 +45,10 @@ function loadHandler() {
 function instantiateClasses() {
   traveler = new Traveler(travelerData,index)
   travelerTrips = new Trip(tripsData,index,destinationsData)
+}
+
+function displayWelcomeMessage(){
+  welcomeMessage.innerText = `${traveler.traveler.name}`
 }
 
 function displayTravelLog() {
@@ -55,6 +60,7 @@ function displayTravelLog() {
       <p>Travelers: ${trip.travelers}</p>
       <p>Date: ${trip.date}</p>
       <p>Duration: ${trip.duration} days</p>
+      <p>Cost: ${travelerTrips.calculateSingleTripCost(index)}</p>
       <p>Status: ${trip.status}</p>
     </article>
     <div class="image-container">
@@ -66,10 +72,7 @@ function displayTravelLog() {
 }
 
 function displayFinanceLog() {
-  financeLog.innerText = `Total Money Spent: ${new Intl.NumberFormat('en-US',{
-    style: 'currency',
-    currency: 'USD'
-  }).format(travelerTrips.calculateTotalTripCost())}`
+  financeLog.innerText = `Total Money Spent: ${travelerTrips.calculateTotalTripCost()}`
 }
 
 //eventListeners

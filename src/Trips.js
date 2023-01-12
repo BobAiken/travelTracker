@@ -12,14 +12,26 @@ class Trip {
   }
   
   calculateTotalTripCost(){
-    return this.trips.reduce((finalNumber,trip)=>{
+    let totalCost = this.trips.reduce((finalNumber,trip)=>{
       this.destinations.forEach(destination=>{
         if(destination.id === trip.destinationID){
-          finalNumber += (trip.travelers * destination.estimatedFlightCostPerPerson) + (trip.duration * destination.estimatedLodgingCostPerDay)
+          finalNumber += ((trip.travelers * destination.estimatedFlightCostPerPerson) + (trip.duration * destination.estimatedLodgingCostPerDay)) * 1.1
         }
       })
       return finalNumber
-    },0) * 1.1
+    },0)
+    return new Intl.NumberFormat('en-US',{
+      style: 'currency',
+      currency: 'USD'
+    }).format(totalCost)
+  }
+
+  calculateSingleTripCost(index){
+    let cost = ((this.trips[index].travelers * this.destinations[index].estimatedFlightCostPerPerson) + (this.trips[index].duration * this.destinations[index].estimatedLodgingCostPerDay)) * 1.1
+    return new Intl.NumberFormat('en-US',{
+      style: 'currency',
+      currency: 'USD'
+    }).format(cost)
   }
 }
 
