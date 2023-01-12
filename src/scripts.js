@@ -9,20 +9,21 @@ import Trip from './Trips';
 let travelLog = document.querySelector(".travel-log")
 let financeLog = document.querySelector(".finance-log")
 let welcomeMessage = document.querySelector(".welcome-message")
+let formDestination = document.querySelector("#form-destination")
 
 //globalVariables
 let currentUser
 let travelerData
 let tripsData
 let destinationsData
-let index
+let userID
 let traveler;
 let travelerTrips
 
 //functions
 
-function generateRandomIndex() {
-  index = Math.floor(Math.random() * travelerData.travelers.length);
+function generateRandomUserID() {
+  userID = Math.floor(Math.random() * travelerData.travelers.length) + 1;
 }
 
 function fetchApiCalls() {
@@ -30,25 +31,32 @@ function fetchApiCalls() {
     travelerData = data[0]
     tripsData = data[1]
     destinationsData = data[2]
-    generateRandomIndex()
+    generateRandomUserID()
     loadHandler()
   })
 }
 
 function loadHandler() {
   instantiateClasses()
+  createDestinationSelectList()
   displayWelcomeMessage()
   displayTravelLog()
   displayFinanceLog()
 }
 
 function instantiateClasses() {
-  traveler = new Traveler(travelerData,index)
-  travelerTrips = new Trip(tripsData,index,destinationsData)
+  traveler = new Traveler(travelerData,userID)
+  travelerTrips = new Trip(tripsData,userID,destinationsData)
 }
 
 function displayWelcomeMessage(){
   welcomeMessage.innerText = `${traveler.traveler.name}`
+}
+
+function createDestinationSelectList(){
+  destinationsData.destinations.forEach(destination => {
+    formDestination.innerHtml += `<option value="${destination.id}">${destination.destination}</option>`
+  })
 }
 
 function displayTravelLog() {
