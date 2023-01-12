@@ -50,11 +50,16 @@ function displayTravelLog() {
   travelerTrips.trips.forEach((trip,index) => {
     travelLog.innerHTML += `
     <section class="travel-card">
+    <article class=travel-card-info>
       <p>Location: ${travelerTrips.destinations[index].destination}</p>
-      <p>Travelers:${trip.travelers}</p>
-      <p>Date:${trip.date}</p>
-      <p>Duration:${trip.duration} days</p>
-      <p>Status:${trip.status}</p>
+      <p>Travelers: ${trip.travelers}</p>
+      <p>Date: ${trip.date}</p>
+      <p>Duration: ${trip.duration} days</p>
+      <p>Status: ${trip.status}</p>
+    </article>
+    <div class="image-container">
+      <img src=${travelerTrips.destinations[index].image} alt=${travelerTrips.destinations[index].alt}>
+    </div>
     </section>
     `
   })
