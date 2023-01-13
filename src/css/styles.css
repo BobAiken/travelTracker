@@ -19,6 +19,13 @@ aside {
   min-width: 20vw;
   height: 100vh;
   background-color: white;
+  border-right: 5px black solid;
+}
+
+.welcome-message,
+.finance-log,
+.form-title {
+  text-align: center;
 }
 
 .travel-log {
@@ -33,11 +40,12 @@ aside {
 }
 
 .travel-card {
+  border:5px solid black;
   border-radius: 5px;
   margin: 10px;
   background-color: white;
   width: 38vw;
-  height: 200px;
+  height: 210px;
   background-repeat: no-repeat;
   object-fit: cover;
   display: flex;
@@ -55,12 +63,18 @@ aside {
 img{
   height: 200px;
   width: 19vw;
+  
 }
 
 .form{
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
+
+
 
 
 .log-in{
@@ -73,6 +87,7 @@ img{
   padding: 10px;
   margin: auto;
   background-color: aliceblue;
+  border-style: solid;
   border-color: black;
   border-width: thick;
   border-radius: 10px;
