@@ -16,6 +16,13 @@ let formTravelers = document.querySelector("#form-travelers")
 let formSubmit = document.querySelector("form-submit")
 let travelPlanner = document.querySelector(".form")
 let costEstimation = document.querySelector("#cost-estimation")
+let username = document.querySelector("#username")
+let password = document.querySelector("#password")
+let loginButton = document.querySelector("#loginSubmit")
+let loginForm = document.querySelector(".login-holder")
+let loginMessage = document.querySelector(".login-message")
+let loginScreen = document.querySelector(".log-in")
+let mainPage = document.querySelector(".main-page")
 
 //globalVariables
 let travelerData
@@ -139,11 +146,31 @@ function postTripRequest(){
   })
 }
 
-//eventListeners
+function checkLoginCredentials(){
+  let formattedUsername = username.value.slice(0,8)
+  let usernameID
+  if(username.value.length === 10){
+    usernameID = Number(username.value.slice(-2))
+  } else if(username.value.length === 9){
+    usernameID = Number(username.value.slice(-1))
+  } else {
+    usernameID = -1
+  }
+  console.log(formattedUsername)
+  console.log(usernameID)
+  if(password.value === "travel" && formattedUsername === "traveler" && usernameID <= 50 && usernameID > 0){
+    userID = usernameID
+    fetchApiCalls()
+    loginScreen.classList.toggle("hide")
+    mainPage.classList.toggle("hide")
+  } else {
+    loginForm.reset()
+    loginMessage.innerText = "Your username or password was incorrect!"
+  }
+}
 
-window.addEventListener("load", () => {
-  fetchApiCalls()
-});
+
+//eventListeners
 
 travelPlanner.addEventListener("submit",(e)=>{
   e.preventDefault()
@@ -154,7 +181,6 @@ travelPlanner.addEventListener("input",()=>{
   displayEstimatedCost()
 })
 
-
-
-
-
+loginButton.addEventListener("click",()=>{
+  checkLoginCredentials()
+})

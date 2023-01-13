@@ -11,6 +11,10 @@ body {
   display: flex;
 }
 
+.main-page {
+  display: flex;
+}
+
 aside {
   min-width: 20vw;
   height: 100vh;
@@ -58,9 +62,6 @@ img{
   flex-direction: column;
 }
 
-.hide {
-  display: none
-}
 
 .log-in{
   display: flex;
@@ -77,10 +78,16 @@ img{
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  height: 25vh;
+  width: 25vw;
 }
 
 h1 {
   text-align:center;
+}
+
+.hide {
+  display: none;
 }
 
 .login-message {
