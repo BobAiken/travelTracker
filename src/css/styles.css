@@ -57,3 +57,32 @@ img{
   display: flex;
   flex-direction: column;
 }
+
+.hide {
+  display: none
+}
+
+.log-in{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-holder{
+  padding: 10px;
+  margin: auto;
+  background-color: aliceblue;
+  border-color: black;
+  border-width: thick;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align:center;
+}
+
+.login-message {
+  color: red;
+}

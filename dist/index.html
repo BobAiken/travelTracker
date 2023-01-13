@@ -7,38 +7,50 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <aside>
-    <h2 class="welcome-message">
+  <section class="log-in">
+    <div class="login-holder">
+      <h1>Log In</h1>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="test" id="password" name="password" required>
+      <input type="button" id="submit" value="Log In">
+      <p class="login-message"></p>
+    </div>
+  </section>
+  <section class="main-page hide">
+    <aside>
+      <h2 class="welcome-message">
       
-    </h2>
-    <section class="finance-log">
+      </h2>
+      <section class="finance-log">
   
-    </section>
-    <section class="trip-planner">
-      <form class="form">
-        <p class="form-title">Plan Your Next Trip!</p>
-        <label for="form-date">Date:</label>
-        <input type="date" id="form-date" name="form-date" maxlength="10" required>
-        <label for="form-duration">How long are you staying?</label>
-        <input type="number" id="form-duration" name="form-duration" min="1" placeholder="days" required>
-        <label for="form-travelers">How many people are going?</label>
-        <input type="number" id="form-travelers" name="form-travelers" min="1" placeholder="people" required>
-        <label for="form-destination">Choose a destination:</label>
-        <select id="form-destination" name="form-destination" required>
+      </section>
+      <section class="trip-planner">
+        <form class="form">
+          <p class="form-title">Plan Your Next Trip!</p>
+          <label for="form-date">Date:</label>
+          <input type="date" id="form-date" name="form-date" maxlength="10" required>
+          <label for="form-duration">How long are you staying?</label>
+          <input type="number" id="form-duration" name="form-duration" min="1" placeholder="days" required>
+          <label for="form-travelers">How many people are going?</label>
+          <input type="number" id="form-travelers" name="form-travelers" min="1" placeholder="people" required>
+          <label for="form-destination">Choose a destination:</label>
+          <select id="form-destination" name="form-destination" required>
 
-        </select>
-        <input type="submit" id="form-submit" value="Submit">
-        <input type="reset">
-      </form>
-      <p id="cost-estimation"></p>
-    </section>
-  </aside>
-  <main>
-    <section class="travel-log">
+          </select>
+          <input type="submit" id="form-submit" value="Submit">
+          <input type="reset">
+        </form>
+        <p id="cost-estimation"></p>
+      </section>
+    </aside>
+    <main>
+      <section class="travel-log">
       
-    </section>
-  </main>
-  
+      </section>
+    </main>
+  </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
