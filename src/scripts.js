@@ -34,10 +34,12 @@ function generateRandomUserID() {
 }
 
 function fetchApiCalls() {
+  console.log("inside fetchAPICalls")
   returnDataPromises().then(data => {
     travelerData = data[0]
     tripsData = data[1]
     destinationsData = data[2]
+    console.log("inside returnDataPromises")
     loadHandler()
   })
 }
@@ -129,7 +131,8 @@ function postTripRequest(){
       throw new Error("Something went wrong with the server!")
     }
   })
-  .then(fetchApiCalls())
+  .then(travelPlanner.reset())
+  .then(setTimeout(fetchApiCalls,1000))
   .catch(error => {
     console.error(error.message)
     costEstimation.innerText = "Failed to get data"
