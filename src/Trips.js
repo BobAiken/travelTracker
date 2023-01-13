@@ -1,6 +1,7 @@
 class Trip {
   constructor(tripData, userID, destinationData){
     this.trips = tripData.trips.filter(trip => trip.userID === userID)
+    this.destinationData = destinationData
     this.destinations = this.trips.reduce((finalList,trip)=>{
       destinationData.destinations.forEach(destination => {
         if(destination.id === trip.destinationID){
@@ -26,8 +27,10 @@ class Trip {
     }).format(totalCost)
   }
 
-  calculateSingleTripCost(index){
-    let cost = ((this.trips[index].travelers * this.destinations[index].estimatedFlightCostPerPerson) + (this.trips[index].duration * this.destinations[index].estimatedLodgingCostPerDay)) * 1.1
+  calculateSingleTripCost(travelers,duration,destinationID){
+    
+    let selectedDestination = this.destinationData.destinations.find(destination => destination.id == destinationID)
+    let cost = ((travelers * selectedDestination.estimatedFlightCostPerPerson) + (duration * selectedDestination.estimatedLodgingCostPerDay)) * 1.1
     return new Intl.NumberFormat('en-US',{
       style: 'currency',
       currency: 'USD'
