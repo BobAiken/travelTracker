@@ -13,7 +13,6 @@ let formDestination = document.querySelector("#form-destination");
 let formDate = document.querySelector("#form-date");
 let formDuration = document.querySelector("#form-duration");
 let formTravelers = document.querySelector("#form-travelers");
-let formSubmit = document.querySelector("form-submit");
 let travelPlanner = document.querySelector(".form");
 let costEstimation = document.querySelector("#cost-estimation");
 let username = document.querySelector("#username");
@@ -160,12 +159,17 @@ function checkLoginCredentials() {
 
 travelPlanner.addEventListener("submit", (e) => {
   e.preventDefault();
+  costEstimation.innerText = "";
   postData = formatFormData();
   postTripRequest(postData);
 });
 
 travelPlanner.addEventListener("input", () => {
   displayEstimatedCost();
+});
+
+travelPlanner.addEventListener("reset", () => {
+  costEstimation.innerText = "";
 });
 
 loginButton.addEventListener("click", () => {
