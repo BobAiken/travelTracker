@@ -100,18 +100,8 @@ describe("Trips", () => {
     expect(userTrips).to.be.an.instanceOf(Trip);
   });
 
-  it("should have a list of trips taken by the user", function () {
+  it("should have a list of trips taken by the user sorted by most recent trip", function () {
     expect(userTrips.trips).to.deep.equal([
-      {
-        id: 89,
-        userID: 2,
-        destinationID: 10,
-        travelers: 5,
-        date: "2019/09/27",
-        duration: 13,
-        status: "approved",
-        suggestedActivities: [],
-      },
       {
         id: 100,
         userID: 2,
@@ -119,6 +109,16 @@ describe("Trips", () => {
         travelers: 6,
         date: "2020/3/28",
         duration: 10,
+        status: "approved",
+        suggestedActivities: [],
+      },
+      {
+        id: 89,
+        userID: 2,
+        destinationID: 10,
+        travelers: 5,
+        date: "2019/09/27",
+        duration: 13,
         status: "approved",
         suggestedActivities: [],
       },
@@ -179,14 +179,6 @@ describe("Trips", () => {
   it("should store all destinations the user has/will take a trip to", function () {
     expect(userTrips.destinations).to.deep.equal([
       {
-        id: 10,
-        destination: "Toronto, Canada",
-        estimatedLodgingCostPerDay: 90,
-        estimatedFlightCostPerPerson: 450,
-        image:
-          "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80",
-      },
-      {
         id: 6,
         destination: "Jakarta, Indonesia",
         estimatedLodgingCostPerDay: 70,
@@ -194,6 +186,14 @@ describe("Trips", () => {
         image:
           "https://images.unsplash.com/photo-1555333145-4acf190da336?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         alt: "lit up city at night",
+      },
+      {
+        id: 10,
+        destination: "Toronto, Canada",
+        estimatedLodgingCostPerDay: 90,
+        estimatedFlightCostPerPerson: 450,
+        image:
+          "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80",
       },
     ]);
   });

@@ -1,6 +1,8 @@
 class Trip {
   constructor(tripData, userID, destinationData) {
-    this.trips = tripData.trips.filter((trip) => trip.userID === userID);
+    this.trips = tripData.trips
+      .filter((trip) => trip.userID === userID)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
     this.destinationData = destinationData;
     this.destinations = this.trips.reduce((finalList, trip) => {
       destinationData.destinations.forEach((destination) => {
