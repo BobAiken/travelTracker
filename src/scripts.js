@@ -79,23 +79,23 @@ function displayTravelLog() {
   travelerTrips.trips.forEach((trip, index) => {
     travelLog.innerHTML += `
     <section class="travel-card">
-    <article class=travel-card-info>
-      <p>Location: ${travelerTrips.destinations[index].destination}</p>
-      <p>Travelers: ${trip.travelers}</p>
-      <p>Date: ${new Date(trip.date).toDateString()}</p>
-      <p>Duration: ${trip.duration} days</p>
-      <p>Cost: ${travelerTrips.calculateSingleTripCost(
-        trip.travelers,
-        trip.duration,
-        trip.destinationID
-      )}</p>
-      <p>Status: ${trip.status}</p>
-    </article>
-    <div class="image-container">
-      <img src=${travelerTrips.destinations[index].image} alt=${
+      <article class=travel-card-info>
+        <p>Location: ${travelerTrips.destinations[index].destination}</p>
+        <p>Travelers: ${trip.travelers}</p>
+        <p>Date: ${new Date(trip.date).toDateString()}</p>
+        <p>Duration: ${trip.duration} days</p>
+        <p>Cost: ${travelerTrips.calculateSingleTripCost(
+          trip.travelers,
+          trip.duration,
+          trip.destinationID
+        )}</p>
+        <p>Status: ${trip.status}</p>
+      </article>
+      <div class="image-container">
+        <img src=${travelerTrips.destinations[index].image} alt=${
       travelerTrips.destinations[index].alt
     }>
-    </div>
+      </div>
     </section>
     `;
   });
